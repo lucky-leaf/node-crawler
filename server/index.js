@@ -1,9 +1,18 @@
 const Koa=require('koa');
+const views=require('koa-views');
+const {resolve}=require('path');
 const app=new Koa();
-const {normal}=require('./tpl');
+
+app.use(views(resolve(__dirname,'./views'),{
+    map:{html:'ejs'}
+}))
 
 app.use(async (ctx,next)=>{
-    ctx.body=normal;
+    ctx.type='text/html'
+    await ctx.render('index',{
+        you:'World',
+        me:'Lucky-Leaf'
+    })
 });
 
 app.listen(8080,()=>{
