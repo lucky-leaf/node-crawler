@@ -1,0 +1,26 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "koa crawler",
+  "main": "index.js",
+  "dependencies": {
+    "koa": "^2.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucky-leaf/node-crawler.git"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "lucky-leaf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucky-leaf/node-crawler/issues"
+  },
+  "homepage": "https://github.com/lucky-leaf/node-crawler#readme"
+}
