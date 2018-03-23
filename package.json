@@ -6,7 +6,8 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "koa": "^2.5.0",
-    "koa-views": "^6.1.4"
+    "koa-views": "^6.1.4",
+    "puppeteer": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {
