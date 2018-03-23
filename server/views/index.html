@@ -1,13 +1,224 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koa Server</title>
     <%- include('./includes/style.html')%>
+        <style>
+            header {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                background: #00474f;
+                color: #E7DACB;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 50px;
+                z-index: 500;
+            }
+
+            @media (min-width: 768px) {
+                .sidebar {
+                    position: -webkit-sticky;
+                    position: sticky;
+                    top: 4rem;
+                    z-index: 500;
+                    height: calc(100vh-4rem);
+                    border-right: 1px solid rgba(0, 0, 0, .1);
+                    order: 0;
+                    border-bottom: 1px solid rgba(0, 0, 0, .1);
+                }
+
+                .cat-links {
+                    display: block!important;
+                    max-height: calc(100vh-9rem);
+                    overflow-y: auto;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    margin-right: -15px;
+                    margin-left: -15px;
+                }
+            }
+
+            .sidebar-link {
+                display: block;
+                padding: 25rem, 1.5rem;
+                font-weight: 500;
+                color: rgba(0, 0, 0, .65);
+            }
+
+            .sidebar .nav>li>a {
+                display: block;
+                padding: 25rem, 1.5rem;
+                font-size: 90%;
+                color: rgba(0, 0, 0, .65);
+            }
+
+            .sidebar-item.active>.sidebar-inner {
+                display: block;
+            }
+
+            .card {
+                margin-bottom: 1.5rem;
+            }
+
+            .switcher {
+                position: relative;
+                padding: 1rem 15px;
+                margin-right: -15px;
+                margin-left: -15px;
+                border-bottom: 1px solid rgba(0, 0, 0, .05);
+            }
+
+            .sidebar-toggle {
+                line-height: 1;
+                color: #212529;
+            }
+
+            .p-0 {
+                padding: 0!important;
+            }
+
+            .ml-3 .mx-3 {
+                margin-left: 1rem!important;
+            }
+
+            .btn-link {
+                font-weight: 400;
+                color: #007bff;
+                background-color: transparent;
+            }
+        </style>
 </head>
+
 <body>
-    <%- include('./content.html')%>
-    <%- include('./includes/script.html')%>
+    <%- include('./includes/header.html')%>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="siderbar col-12 col-md-3 col-xl-2">
+                    <div class="collapse cat-links">
+                        <div class="sidebar-item activ">
+                            <a class="sidebar-link" href="/">Links</a>
+                            <ul class="nav sidebar-inner">
+                                <li class="active sidebar-inner-active">
+                                    <a href="/">Link1</a>
+                                </li>
+                                <li class="sidebar-inner-active">
+                                    <a href="/">Link1</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content col-12 col-md-9 col-xl-9 py-md-3 pl-md-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a" data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4"
+                                />
+                                <div class="card-body">
+                                    <h4 class="card-title">这是电影标题</h4>
+                                    <p class="card-desc">这是电影描述</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">1天前更新</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a" data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4"
+                                />
+                                <div class="card-body">
+                                    <h4 class="card-title">这是电影标题</h4>
+                                    <p class="card-desc">这是电影描述</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">1天前更新</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a" data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4"
+                                />
+                                <div class="card-body">
+                                    <h4 class="card-title">这是电影标题</h4>
+                                    <p class="card-desc">这是电影描述</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">1天前更新</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a" data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4"
+                                />
+                                <div class="card-body">
+                                    <h4 class="card-title">这是电影标题</h4>
+                                    <p class="card-desc">这是电影描述</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">1天前更新</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"
+            id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" id="videoModal"></div>
+            </div>
+        </div>
+        <%- include('./includes/script.html')%>
+            <script>
+                var player = null;
+                $(document).ready(function () {
+
+                    $('#myModal').on('hidden.bs.modal', function (e) {
+                        if (player && player.pause) {
+                            player.pause();
+                        }
+                    })
+
+                    $('.card-img-top').click(function (e) {
+                        var video = $(this).data('video');
+                        var image = $(this).attr('src');
+
+                        $('#myModal').modal('show');
+
+                        if (!player) {
+                            player = new DPlayer({
+                                container: document.getElementById('videoModal'),
+                                sreenshot: true,
+                                video: {
+                                    url: video,
+                                    pic: image,
+                                    thumbnails: image
+                                }
+                            })
+                        } else {
+                            if (player.currentSrc !== video) {
+                                player.switchVideo({
+                                    url: video,
+                                    pic: image,
+                                    type: 'auto'
+                                })
+                            }
+
+                        }
+                    })
+                })
+            </script>
 </body>
+
 </html>
