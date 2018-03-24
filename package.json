@@ -7,7 +7,9 @@
     "ejs": "^2.5.7",
     "koa": "^2.5.0",
     "koa-views": "^6.1.4",
-    "puppeteer": "^1.2.0"
+    "puppeteer": "^1.2.0",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,12 +1,6 @@
 const puppeteer=require('puppeteer');
 const url='https://movie.douban.com/tag/#/?sort=R&range=6,10&tags=';
 
-const sleep= (time)=>{
-    new Promise((resolve,reject)=>{
-        setTimeout(resolve,time);
-    })
-}
-
 (async ()=>{
     console.log('Start visit the targe page...');
     const browser=await puppeteer.launch({
@@ -17,10 +11,10 @@ const sleep= (time)=>{
     await page.goto(url,{
         waitUntil:'networkidle2'
     });
-    await sleep(3000);
+    await page.waitFor(3000);
     await page.waitForSelector('.more');
     for(let i=0;i<1;i++){
-        await sleep(3000);
+        await page.waitFor(3000);
         await page.click('.more')
     }
     const result=await page.evaluate(()=>{
@@ -42,5 +36,6 @@ const sleep= (time)=>{
         return links;
     });
     await browser.close();
-    console.log(result);
+    process.send({result});
+    process.exit(0);
 })();
