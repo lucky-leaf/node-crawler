@@ -3,7 +3,10 @@ const Schema=mongoose.Schema;
 const Mixed=Schema.Types.Mixed;
 
 const movieSchema=new Schema({
-    doubanId:String,
+    doubanId:{
+        unique:true,
+        type:String
+    },
     rate:Number,
     title:String,
     summary:String,
@@ -38,6 +41,7 @@ movieSchema.pre('save',next=>{
     }else{
         this.updatedAt=Date.now();
     }
+    next();
 })
 
 mongoose.model('Movie',movieSchema);
