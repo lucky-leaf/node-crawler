@@ -1,5 +1,5 @@
 const puppeteer=require('puppeteer');
-const url='https://movie.douban.com/tag/#/?sort=R&range=6,10&tags=';
+const url='https://movie.douban.com/tag/#/?sort=R&range=6,10&tags=电影';
 
 (async ()=>{
     console.log('Start visit the targe page...');

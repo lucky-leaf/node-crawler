@@ -1,6 +1,6 @@
 const puppeteer=require('puppeteer');
 const base='https://movie.douban.com/subject/';
-const doubanId='26967920'
+const doubanId='26654498'
 const videoBase='https://movie.douban.com/trailer/228992';
 
 (async ()=>{
